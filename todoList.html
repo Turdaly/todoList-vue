@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sample">
+        <div class="Todo">
+          <h1>Your actions</h1>
+          <app-todo-action
+            v-for="(action, i) in todoList"
+            :key="i"
+            :title="action.title"
+            :current="action.current"
+            :max="action.max"
+            @step="makeStep(i)"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      let AppTodoAction = {
+        props: {
+          title: { type: String, required: true },
+          current: { type: Number, required: true },
+          max: { type: Number, required: true },
+        },
+        computed: {
+          rel() {
+            return this.current / this.max;
+          },
+          progressStyle() {
+            return { width: this.rel * 100 + "%" };
+          },
+          alertClasses() {
+            return {
+              "alert-danger": this.rel < 0.25,
+              "alert-warning": this.rel >= 0.25 && this.rel < 0.75,
+              "alert-success": this.rel >= 0.75,
+            };
+          },
+        },
+        methods: {
+          step() {
+            this.$emit("step");
+          },
+        },
+        template: `
+				<div class="action">
+					<div class="alert" :class="alertClasses">
+						<h2>{{ title }}</h2>
+						<div class="progress">
+							<div class="progress-bar" :style="progressStyle">
+							</div>
+						</div>
+						<hr>
+						<h3 v-if="current == max">All done!</h3>
+						<button @click='step'>
+							I make step!
+						</button>
+					</div>
+				</div>
+		`,
+      };
+      Vue.createApp({
+        components: { AppTodoAction },
+        data: () => ({
+          todoList: [
+            { title: "First action", current: 0, max: 5 },
+            { title: "Other work", current: 0, max: 10 },
+            { title: "Some fun", current: 0, max: 7 },
+          ],
+        }),
+        methods: {
+          makeStep(i) {
+            let action = this.todoList[i];
+            if (action.current < action.max) {
+              action.current++;
+            }
+          },
+        },
+      }).mount(".sample");
+    </script>
+  </body>
+</html>
