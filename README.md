@@ -16,7 +16,7 @@ Responsive Design: The application is designed to be responsive and accessible a
 To run the application locally, simply download the project files and open the index.html file in your web browser. Alternatively, you can deploy the application to a web server to make it accessible online.
 
 ## Getting Started:
-1. Clone the repository: 
+1.Clone the repository: 
 git clone https://github.com/your-username/vue-todo-list.git
 
 2.Navigate to the project directory:
