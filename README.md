@@ -21,4 +21,5 @@ git clone https://github.com/your-username/vue-todo-list.git
 
 2.Navigate to the project directory:
 cd vue-todo-list
+
 3.Open index.html in your web browser.
