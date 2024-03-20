@@ -9,8 +9,8 @@ Responsive Design: The application is designed to be responsive and accessible a
 
 ## Technologies Used:
 
-#### Vue.js: A progressive JavaScript framework for building user interfaces.
-#### Bootstrap: A popular CSS framework for building responsive and mobile-first websites.****
+**Vue.js:** A progressive JavaScript framework for building user interfaces.
+**Bootstrap:** A popular CSS framework for building responsive and mobile-first websites.****
 
 ## Usage:
 To run the application locally, simply download the project files and open the index.html file in your web browser. Alternatively, you can deploy the application to a web server to make it accessible online.
