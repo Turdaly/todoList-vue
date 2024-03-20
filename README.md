@@ -9,7 +9,7 @@ Responsive Design: The application is designed to be responsive and accessible a
 
 ## Technologies Used:
 
-**Vue.js:** A progressive JavaScript framework for building user interfaces.
+**Vue.js:** A progressive JavaScript framework for building user interfaces. <br>
 **Bootstrap:** A popular CSS framework for building responsive and mobile-first websites.****
 
 ## Usage:
